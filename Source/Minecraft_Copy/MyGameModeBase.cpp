@@ -2,11 +2,12 @@
 
 
 #include "MyGameModeBase.h"
-#include "MyPlayerController.h"
-#include "MyCharacter.h"
 
 AMyGameModeBase::AMyGameModeBase()
-{	
-	PlayerControllerClass = AMyPlayerController::StaticClass();
-	DefaultPawnClass = AMyCharacter::StaticClass();
+{
+	static ConstructorHelpers::FClassFinder<APawn> CharacterClassRef(TEXT("/Script/CoreUObject.Class'/Script/Minecraft_Copy.MyCharacter'"));
+	if (CharacterClassRef.Class) 
+	{
+		DefaultPawnClass = CharacterClassRef.Class;
+	}	
 }

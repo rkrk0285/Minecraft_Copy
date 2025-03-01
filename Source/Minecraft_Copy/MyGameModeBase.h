@@ -13,7 +13,7 @@ UCLASS()
 class MINECRAFT_COPY_API AMyGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-
+	
 public:
 	AMyGameModeBase();
 };
